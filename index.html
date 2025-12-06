@@ -1312,10 +1312,65 @@
             height: 100%;
             background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-card-hover));
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--color-text-muted);
             font-size: var(--font-size-3xl);
+            gap: var(--spacing-sm);
+        }
+
+        .placeholder-upcoming {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-upcoming::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(255, 107, 53, 0.03) 50%,
+                transparent 60%
+            );
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .placeholder-text {
+            font-size: var(--font-size-sm);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Steam image loading state */
+        .game-card-image img {
+            background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-card-hover));
+        }
+
+        .game-card-image img.loading {
+            opacity: 0;
+        }
+
+        .game-card-image img.loaded {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* ============================================
@@ -1458,14 +1513,14 @@
 
             <div class="games-grid">
                 <!-- Azulgar -->
-                <article class="game-card">
+                <article class="game-card" data-steam-appid="633930">
                     <div class="game-card-image">
-                        <div class="placeholder-image">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/>
-                            </svg>
-                        </div>
+                        <img
+                            src="https://cdn.cloudflare.steamstatic.com/steam/apps/633930/header.jpg"
+                            alt="Azulgar: Star Commanders - Sci-Fi sandbox hra"
+                            loading="lazy"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><svg width=\'80\' height=\'80\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><polygon points=\'12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9\'/></svg></div>';"
+                        >
                         <span class="game-card-badge">Early Access</span>
                     </div>
                     <div class="game-card-content">
@@ -1488,13 +1543,14 @@
                 </article>
 
                 <!-- Cybershift -->
-                <article class="game-card">
+                <article class="game-card" data-steam-appid="1151190">
                     <div class="game-card-image">
-                        <div class="placeholder-image">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
-                        </div>
+                        <img
+                            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1151190/header.jpg"
+                            alt="Cybershift - Arkádová akční hra"
+                            loading="lazy"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><svg width=\'80\' height=\'80\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M13 2L3 14h9l-1 8 10-12h-9l1-8z\'/></svg></div>';"
+                        >
                         <span class="game-card-badge">Vydáno</span>
                     </div>
                     <div class="game-card-content">
@@ -1507,20 +1563,25 @@
                         <div class="game-card-meta">
                             <span class="game-card-price">149 Kč</span>
                             <div class="game-card-platforms">
-                                <a href="#" class="btn btn-steam btn-sm">Steam</a>
+                                <a href="https://store.steampowered.com/app/1151190/Cybershift/"
+                                   target="_blank" rel="noopener" class="btn btn-steam btn-sm">
+                                    Steam
+                                </a>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- NEO: Commanders -->
-                <article class="game-card">
+                <article class="game-card" data-steam-appid="upcoming">
                     <div class="game-card-image">
-                        <div class="placeholder-image">
+                        <div class="placeholder-image placeholder-upcoming">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                 <rect x="3" y="3" width="18" height="18" rx="2"/>
                                 <path d="M9 9h6v6H9z"/>
+                                <path d="M12 6v2M12 16v2M6 12h2M16 12h2"/>
                             </svg>
+                            <span class="placeholder-text">Připravujeme</span>
                         </div>
                         <span class="game-card-badge coming-soon">Ve vývoji</span>
                     </div>
@@ -2184,11 +2245,65 @@
         });
 
         // ============================================
+        // Steam Images Auto-Loading
+        // ============================================
+        const steamImageTypes = ['header', 'capsule_616x353', 'library_600x900'];
+
+        function loadSteamImage(gameCard) {
+            const appId = gameCard.dataset.steamAppid;
+            if (!appId || appId === 'upcoming') return;
+
+            const imageContainer = gameCard.querySelector('.game-card-image');
+            const img = imageContainer.querySelector('img');
+
+            if (img) {
+                // Add loading class
+                img.classList.add('loading');
+
+                // Create new image to preload
+                const preloadImg = new Image();
+                preloadImg.onload = function() {
+                    img.classList.remove('loading');
+                    img.classList.add('loaded');
+                };
+                preloadImg.onerror = function() {
+                    // Try alternative image format
+                    const altUrl = `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/capsule_616x353.jpg`;
+                    img.src = altUrl;
+                };
+                preloadImg.src = img.src;
+            }
+        }
+
+        // Function to refresh Steam images (can be called externally)
+        function refreshSteamImages() {
+            document.querySelectorAll('.game-card[data-steam-appid]').forEach(card => {
+                const appId = card.dataset.steamAppid;
+                if (appId && appId !== 'upcoming') {
+                    const img = card.querySelector('.game-card-image img');
+                    if (img) {
+                        // Force reload with cache buster
+                        const timestamp = new Date().getTime();
+                        const baseUrl = `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`;
+                        img.src = baseUrl + '?t=' + timestamp;
+                    }
+                }
+            });
+        }
+
+        // Initialize Steam images on load
+        document.querySelectorAll('.game-card[data-steam-appid]').forEach(loadSteamImage);
+
+        // Expose to global scope for debugging
+        window.refreshSteamImages = refreshSteamImages;
+
+        // ============================================
         // Console Easter Egg
         // ============================================
         console.log('%c🎮 SZEINER Game Studio', 'font-size: 24px; font-weight: bold; color: #ff6b35;');
         console.log('%cTvoříme hry s vášní od 2017', 'font-size: 14px; color: #888;');
         console.log('%cZajímá tě práce u nás? Napiš na jobs@szeiner.com', 'font-size: 12px; color: #3498db;');
+        console.log('%cTip: Zavolej refreshSteamImages() pro obnovení obrázků her', 'font-size: 11px; color: #27ae60;');
     </script>
 </body>
 </html>
