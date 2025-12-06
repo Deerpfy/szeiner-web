@@ -584,7 +584,7 @@
         }
 
         .hero-title .highlight {
-            background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+            background: var(--gradient-hero, linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1379,6 +1379,222 @@
         }
 
         /* ============================================
+           THEME PICKER
+           ============================================ */
+
+        .theme-picker-container {
+            position: fixed;
+            bottom: calc(var(--spacing-xl) + 60px);
+            right: var(--spacing-xl);
+            z-index: 101;
+        }
+
+        .theme-picker-btn {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-picker-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .theme-picker-btn svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .theme-picker-modal {
+            position: fixed;
+            bottom: calc(var(--spacing-xl) + 120px);
+            right: var(--spacing-xl);
+            width: 320px;
+            background: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-2xl), var(--shadow-glow);
+            padding: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: all var(--transition-normal);
+            z-index: 102;
+        }
+
+        .theme-picker-modal.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .theme-picker-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-picker-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .theme-picker-close {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-picker-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-picker-close svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        .theme-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .theme-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: center;
+        }
+
+        .theme-option:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .theme-option.active {
+            border-color: var(--color-accent);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .theme-option-preview {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .theme-option-color {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-option-name {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        /* Theme Variations */
+        [data-theme="cyber-violet"] {
+            --color-accent: #8b5cf6;
+            --color-accent-hover: #a78bfa;
+            --color-accent-dark: #7c3aed;
+            --color-secondary: #06b6d4;
+            --color-tertiary: #ec4899;
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            --gradient-hero: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.4);
+        }
+
+        [data-theme="ocean-blue"] {
+            --color-accent: #3b82f6;
+            --color-accent-hover: #60a5fa;
+            --color-accent-dark: #2563eb;
+            --color-secondary: #06b6d4;
+            --color-tertiary: #8b5cf6;
+            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-hero: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6);
+            --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.4);
+        }
+
+        [data-theme="neon-green"] {
+            --color-accent: #22c55e;
+            --color-accent-hover: #4ade80;
+            --color-accent-dark: #16a34a;
+            --color-secondary: #84cc16;
+            --color-tertiary: #06b6d4;
+            --gradient-primary: linear-gradient(135deg, #22c55e 0%, #84cc16 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #22c55e 100%);
+            --gradient-hero: linear-gradient(135deg, #22c55e, #84cc16, #06b6d4);
+            --shadow-glow: 0 0 40px rgba(34, 197, 94, 0.4);
+        }
+
+        [data-theme="sunset-orange"] {
+            --color-accent: #f97316;
+            --color-accent-hover: #fb923c;
+            --color-accent-dark: #ea580c;
+            --color-secondary: #eab308;
+            --color-tertiary: #ef4444;
+            --gradient-primary: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            --gradient-secondary: linear-gradient(135deg, #eab308 0%, #f97316 100%);
+            --gradient-hero: linear-gradient(135deg, #f97316, #ef4444, #eab308);
+            --shadow-glow: 0 0 40px rgba(249, 115, 22, 0.4);
+        }
+
+        [data-theme="crimson-red"] {
+            --color-accent: #ef4444;
+            --color-accent-hover: #f87171;
+            --color-accent-dark: #dc2626;
+            --color-secondary: #ec4899;
+            --color-tertiary: #f97316;
+            --gradient-primary: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
+            --gradient-hero: linear-gradient(135deg, #ef4444, #ec4899, #f97316);
+            --shadow-glow: 0 0 40px rgba(239, 68, 68, 0.4);
+        }
+
+        [data-theme="golden-luxury"] {
+            --color-accent: #eab308;
+            --color-accent-hover: #facc15;
+            --color-accent-dark: #ca8a04;
+            --color-secondary: #f97316;
+            --color-tertiary: #a3e635;
+            --gradient-primary: linear-gradient(135deg, #eab308 0%, #f97316 100%);
+            --gradient-secondary: linear-gradient(135deg, #a3e635 0%, #eab308 100%);
+            --gradient-hero: linear-gradient(135deg, #eab308, #f97316, #a3e635);
+            --shadow-glow: 0 0 40px rgba(234, 179, 8, 0.4);
+        }
+
+        /* ============================================
            PLACEHOLDER IMAGES (SVG)
            ============================================ */
 
@@ -2097,6 +2313,81 @@
     </div>
 
     <!-- ============================================
+         THEME PICKER
+         ============================================ -->
+    <div class="theme-picker-container">
+        <button class="theme-picker-btn" id="theme-picker-btn" aria-label="Změnit barevné schéma">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Theme Picker Modal -->
+    <div class="theme-picker-modal" id="theme-picker-modal">
+        <div class="theme-picker-header">
+            <span class="theme-picker-title">Barevné schéma</span>
+            <button class="theme-picker-close" id="theme-picker-close" aria-label="Zavřít">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="theme-picker-grid">
+            <button class="theme-option active" data-theme="cyber-violet">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #8b5cf6;"></span>
+                    <span class="theme-option-color" style="background: #ec4899;"></span>
+                    <span class="theme-option-color" style="background: #06b6d4;"></span>
+                </div>
+                <span class="theme-option-name">Cyber Violet</span>
+            </button>
+            <button class="theme-option" data-theme="ocean-blue">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #3b82f6;"></span>
+                    <span class="theme-option-color" style="background: #06b6d4;"></span>
+                    <span class="theme-option-color" style="background: #8b5cf6;"></span>
+                </div>
+                <span class="theme-option-name">Ocean Blue</span>
+            </button>
+            <button class="theme-option" data-theme="neon-green">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #22c55e;"></span>
+                    <span class="theme-option-color" style="background: #84cc16;"></span>
+                    <span class="theme-option-color" style="background: #06b6d4;"></span>
+                </div>
+                <span class="theme-option-name">Neon Green</span>
+            </button>
+            <button class="theme-option" data-theme="sunset-orange">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #f97316;"></span>
+                    <span class="theme-option-color" style="background: #ef4444;"></span>
+                    <span class="theme-option-color" style="background: #eab308;"></span>
+                </div>
+                <span class="theme-option-name">Sunset Orange</span>
+            </button>
+            <button class="theme-option" data-theme="crimson-red">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #ef4444;"></span>
+                    <span class="theme-option-color" style="background: #ec4899;"></span>
+                    <span class="theme-option-color" style="background: #f97316;"></span>
+                </div>
+                <span class="theme-option-name">Crimson Red</span>
+            </button>
+            <button class="theme-option" data-theme="golden-luxury">
+                <div class="theme-option-preview">
+                    <span class="theme-option-color" style="background: #eab308;"></span>
+                    <span class="theme-option-color" style="background: #f97316;"></span>
+                    <span class="theme-option-color" style="background: #a3e635;"></span>
+                </div>
+                <span class="theme-option-name">Golden Luxury</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================
          SCROLL TO TOP BUTTON
          ============================================ -->
     <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
@@ -2121,6 +2412,68 @@
         const cookieSettings = document.getElementById('cookie-settings');
         const contactForm = document.getElementById('contact-form');
         const particles = document.getElementById('particles');
+        const themePickerBtn = document.getElementById('theme-picker-btn');
+        const themePickerModal = document.getElementById('theme-picker-modal');
+        const themePickerClose = document.getElementById('theme-picker-close');
+        const themeOptions = document.querySelectorAll('.theme-option');
+
+        // ============================================
+        // Theme Picker Functionality
+        // ============================================
+        const THEME_STORAGE_KEY = 'szeiner-theme';
+
+        // Load saved theme on page load
+        const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'cyber-violet';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Update active state in picker
+        themeOptions.forEach(option => {
+            if (option.dataset.theme === savedTheme) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+
+        // Toggle theme picker modal
+        themePickerBtn.addEventListener('click', () => {
+            themePickerModal.classList.toggle('show');
+        });
+
+        // Close theme picker modal
+        themePickerClose.addEventListener('click', () => {
+            themePickerModal.classList.remove('show');
+        });
+
+        // Close modal on outside click
+        document.addEventListener('click', (e) => {
+            if (!themePickerModal.contains(e.target) && !themePickerBtn.contains(e.target)) {
+                themePickerModal.classList.remove('show');
+            }
+        });
+
+        // Theme selection
+        themeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const theme = option.dataset.theme;
+
+                // Update HTML attribute
+                document.documentElement.setAttribute('data-theme', theme);
+
+                // Save to localStorage
+                localStorage.setItem(THEME_STORAGE_KEY, theme);
+
+                // Update active state
+                themeOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+
+                // Add visual feedback
+                option.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    option.style.transform = '';
+                }, 150);
+            });
+        });
 
         // ============================================
         // Navbar Scroll Effect
