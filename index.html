@@ -353,13 +353,10 @@
             color: var(--color-text-primary);
         }
 
-        .navbar-logo svg {
-            width: 48px;
-            height: 42px;
-        }
-
-        .navbar-logo .dragon-logo {
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        .navbar-logo .logo-img {
+            width: auto;
+            height: 40px;
+            object-fit: contain;
         }
 
         .navbar-logo span {
@@ -1700,28 +1697,7 @@
     <nav class="navbar" id="navbar">
         <div class="container navbar-container">
             <a href="#" class="navbar-logo">
-                <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" class="dragon-logo">
-                    <!-- Shield shape with dragon -->
-                    <path d="M50 85C50 85 0 55 0 20C0 8 8 0 20 0H80C92 0 100 8 100 20C100 55 50 85 50 85Z" fill="url(#dragon-gradient)"/>
-                    <!-- Dragon body - main coil -->
-                    <path d="M65 18C58 15 48 18 42 25C36 32 35 42 38 50C41 58 48 63 56 63C52 58 50 52 52 45C54 38 60 33 68 33C72 33 76 35 78 38C80 35 80 30 78 26C76 22 71 19 65 18Z" fill="white"/>
-                    <!-- Dragon head -->
-                    <path d="M28 35C24 32 18 32 15 36C12 40 13 46 17 50C21 54 27 55 32 52C29 49 27 45 28 40C28 38 28 36 28 35Z" fill="white"/>
-                    <!-- Dragon horns/spikes -->
-                    <path d="M22 28L18 22L24 26L22 28Z M28 24L26 17L30 22L28 24Z M35 22L35 14L38 20L35 22Z M43 20L45 12L46 18L43 20Z M52 18L56 10L54 17L52 18Z" fill="white"/>
-                    <!-- Dragon claws -->
-                    <path d="M32 58L28 64L34 60L32 58Z M38 62L36 70L42 64L38 62Z M46 64L46 72L50 66L46 64Z" fill="white"/>
-                    <!-- Dragon tail details -->
-                    <path d="M75 42C78 45 82 46 86 44C88 42 88 38 86 35L82 40C80 42 77 42 75 42Z" fill="white"/>
-                    <!-- Wing accent -->
-                    <path d="M70 22L78 15L82 22L76 20L70 22Z M82 24L92 20L88 28L84 25L82 24Z" fill="white" opacity="0.9"/>
-                    <defs>
-                        <linearGradient id="dragon-gradient" x1="0" y1="0" x2="100" y2="85">
-                            <stop stop-color="var(--color-accent, #ed1c24)"/>
-                            <stop offset="1" stop-color="var(--color-accent-dark, #c41e3a)"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+                <img src="assets/images/logo.png" alt="SZEINER Logo" class="logo-img">
                 <span>SZEINER</span>
             </a>
 
@@ -2253,15 +2229,7 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" class="dragon-logo" style="width: 36px; height: 32px;">
-                            <path d="M50 85C50 85 0 55 0 20C0 8 8 0 20 0H80C92 0 100 8 100 20C100 55 50 85 50 85Z" fill="var(--color-accent)"/>
-                            <path d="M65 18C58 15 48 18 42 25C36 32 35 42 38 50C41 58 48 63 56 63C52 58 50 52 52 45C54 38 60 33 68 33C72 33 76 35 78 38C80 35 80 30 78 26C76 22 71 19 65 18Z" fill="white"/>
-                            <path d="M28 35C24 32 18 32 15 36C12 40 13 46 17 50C21 54 27 55 32 52C29 49 27 45 28 40C28 38 28 36 28 35Z" fill="white"/>
-                            <path d="M22 28L18 22L24 26L22 28Z M28 24L26 17L30 22L28 24Z M35 22L35 14L38 20L35 22Z M43 20L45 12L46 18L43 20Z M52 18L56 10L54 17L52 18Z" fill="white"/>
-                            <path d="M32 58L28 64L34 60L32 58Z M38 62L36 70L42 64L38 62Z M46 64L46 72L50 66L46 64Z" fill="white"/>
-                            <path d="M75 42C78 45 82 46 86 44C88 42 88 38 86 35L82 40C80 42 77 42 75 42Z" fill="white"/>
-                            <path d="M70 22L78 15L82 22L76 20L70 22Z M82 24L92 20L88 28L84 25L82 24Z" fill="white" opacity="0.9"/>
-                        </svg>
+                        <img src="assets/images/logo.png" alt="SZEINER Logo" style="height: 32px; width: auto;">
                         <span>SZEINER</span>
                     </div>
                     <p class="footer-description">
