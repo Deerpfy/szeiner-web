@@ -1,0 +1,20 @@
+# SZEINER Contact Form API - Python Dependencies
+# ==============================================
+# Instalace: pip install -r requirements.txt
+
+# Web framework
+Flask>=2.3.0
+flask-cors>=4.0.0
+
+# Konfigurace z .env souborů
+python-dotenv>=1.0.0
+
+# HTTP klient pro Mailchimp API (volitelné)
+requests>=2.31.0
+
+# Produkční WSGI server (volitelné)
+gunicorn>=21.0.0
+
+# Pro asynchrónní zpracování (volitelné)
+# celery>=5.3.0
+# redis>=4.6.0
