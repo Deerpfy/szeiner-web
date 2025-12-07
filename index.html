@@ -25,6 +25,141 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 
+    <!-- Google Analytics 4 -->
+    <!-- GA4 se načte pouze po udělení souhlasu s cookies -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Inicializace s consent mode
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+
+        // Funkce pro načtení GA4 skriptu po souhlasu
+        function loadGA4() {
+            if (document.getElementById('ga4-script')) return;
+            const script = document.createElement('script');
+            script.id = 'ga4-script';
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+            document.head.appendChild(script);
+        }
+    </script>
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SZEINER s.r.o.",
+        "alternateName": "SZEINER Game Studio",
+        "url": "https://szeiner.com",
+        "logo": "https://szeiner.com/assets/images/ico.png",
+        "description": "České nezávislé herní studio zaměřené na vývoj her pro PC a konzole. Od roku 2017 tvoříme hry s vášní.",
+        "foundingDate": "2017",
+        "founders": [{
+            "@type": "Organization",
+            "name": "Lusorion Creatives"
+        }],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Zbýšov 90",
+            "addressCountry": "CZ"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@szeiner.com",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://discord.gg/szeiner",
+            "https://twitter.com/szeiner",
+            "https://youtube.com/@szeiner",
+            "https://linkedin.com/company/szeiner",
+            "https://store.steampowered.com/developer/szeiner"
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - VideoGame Products -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "SZEINER Hry",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "VideoGame",
+                    "name": "Azulgar: Star Commanders",
+                    "description": "Epická vesmírná sandbox hra s otevřeným světem",
+                    "genre": ["Sci-Fi", "Sandbox", "Open World"],
+                    "gamePlatform": ["PC", "Windows"],
+                    "applicationCategory": "Game",
+                    "operatingSystem": "Windows",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "399",
+                        "priceCurrency": "CZK",
+                        "url": "https://store.steampowered.com/app/503010/Azulgar_Star_Commanders/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "SZEINER s.r.o."
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "VideoGame",
+                    "name": "Cybershift",
+                    "description": "Rychlá arkádová akce v kybernetickém světě",
+                    "genre": ["Arcade", "Action"],
+                    "gamePlatform": ["PC", "Windows"],
+                    "applicationCategory": "Game",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "149",
+                        "priceCurrency": "CZK",
+                        "url": "https://store.steampowered.com/app/1017820/Cybershift/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "SZEINER s.r.o."
+                    }
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Domů",
+            "item": "https://szeiner.com/"
+        }]
+    }
+    </script>
+
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1289,6 +1424,104 @@
         }
 
         /* ============================================
+           NEWSLETTER SIGNUP
+           ============================================ */
+
+        .newsletter-signup {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .newsletter-title {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-primary);
+        }
+
+        .newsletter-form {
+            max-width: 100%;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-bg-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--color-text-primary);
+            font-family: inherit;
+            font-size: var(--font-size-sm);
+            transition: border-color var(--transition-fast);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .newsletter-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            flex-shrink: 0;
+        }
+
+        .newsletter-note {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        .newsletter-success {
+            color: var(--color-success);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .newsletter-error {
+            color: var(--color-error);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* ============================================
+           STEAM WIDGET
+           ============================================ */
+
+        .steam-widget {
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .steam-widget-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-secondary);
+        }
+
+        .steam-widget-container {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .steam-widget-container iframe {
+            display: block;
+            border: none;
+        }
+
+        /* ============================================
            COOKIE CONSENT BANNER
            ============================================ */
 
@@ -1339,6 +1572,205 @@
         .cookie-actions {
             display: flex;
             gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* Cookie Modal */
+        .cookie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .cookie-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cookie-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .cookie-modal-content {
+            position: relative;
+            background: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            transition: transform var(--transition-normal);
+        }
+
+        .cookie-modal.show .cookie-modal-content {
+            transform: translateY(0);
+        }
+
+        .cookie-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cookie-modal-header h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+        }
+
+        .cookie-modal-close {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .cookie-modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cookie-modal-close svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        .cookie-modal-body {
+            padding: var(--spacing-lg);
+        }
+
+        .cookie-modal-intro {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cookie-category {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cookie-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .cookie-category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+        }
+
+        .cookie-category-info h4 {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cookie-category-info p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* Toggle Switch */
+        .cookie-toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .cookie-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+            border-radius: 28px;
+        }
+
+        .cookie-toggle-slider::before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            transition: var(--transition-fast);
+            border-radius: 50%;
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider {
+            background: var(--color-accent);
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider::before {
+            transform: translateX(22px);
+        }
+
+        .cookie-toggle.disabled .cookie-toggle-slider {
+            background: rgba(255, 255, 255, 0.05);
+            cursor: not-allowed;
+        }
+
+        .cookie-toggle.disabled input:checked + .cookie-toggle-slider {
+            background: var(--color-success);
+            opacity: 0.5;
+        }
+
+        .cookie-modal-footer {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 480px) {
+            .cookie-modal-footer {
+                flex-direction: column;
+            }
+            .cookie-modal-footer .btn {
+                width: 100%;
+            }
         }
 
         /* ============================================
@@ -1893,6 +2325,17 @@
                     </div>
                 </article>
             </div>
+
+            <!-- Steam Widget -->
+            <div class="steam-widget">
+                <p class="steam-widget-title">Získejte naše hry na Steamu</p>
+                <div class="steam-widget-container">
+                    <iframe src="https://store.steampowered.com/widget/503010/"
+                            width="646" height="190"
+                            title="Azulgar: Star Commanders na Steam"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2236,7 +2679,27 @@
                         České nezávislé herní studio. Tvoříme hry s vášní od roku 2017.
                         Specializujeme se na vývoj her pro PC a konzole.
                     </p>
-                    <div class="lang-switch" style="display: inline-flex;">
+
+                    <!-- Newsletter Signup -->
+                    <div class="newsletter-signup">
+                        <h4 class="newsletter-title">Odebírejte novinky</h4>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <div class="newsletter-input-group">
+                                <input type="email" id="newsletter-email" name="email"
+                                       placeholder="vas@email.cz" required
+                                       class="newsletter-input" aria-label="Email pro newsletter">
+                                <button type="submit" class="btn btn-primary newsletter-btn" aria-label="Přihlásit k odběru">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"/>
+                                        <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="newsletter-note">Žádný spam. Pouze důležité novinky o hrách.</p>
+                        </form>
+                    </div>
+
+                    <div class="lang-switch" style="display: inline-flex; margin-top: var(--spacing-md);">
                         <button class="active" data-lang="cs">CZ</button>
                         <button data-lang="en">EN</button>
                     </div>
@@ -2284,22 +2747,105 @@
     </footer>
 
     <!-- ============================================
-         COOKIE CONSENT BANNER
+         COOKIE CONSENT BANNER - GDPR Compliant
          ============================================ -->
-    <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description">
         <div class="container">
             <div class="cookie-content">
                 <div class="cookie-text">
-                    <h4>🍪 Používáme cookies</h4>
-                    <p>
-                        Tento web používá cookies pro zlepšení uživatelského zážitku.
-                        <a href="cookies.html">Zjistit více</a>
+                    <h4 id="cookie-title">Používáme cookies</h4>
+                    <p id="cookie-description">
+                        Tento web používá cookies pro zajištění správného fungování, analýzu návštěvnosti a personalizaci obsahu.
+                        <a href="cookies.html">Zjistit více o cookies</a> |
+                        <a href="privacy.html">Ochrana soukromí</a>
                     </p>
                 </div>
                 <div class="cookie-actions">
+                    <button class="btn btn-secondary btn-sm" id="cookie-reject">Odmítnout vše</button>
                     <button class="btn btn-secondary btn-sm" id="cookie-settings">Nastavení</button>
                     <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookie-modal" role="dialog" aria-labelledby="cookie-modal-title" aria-hidden="true">
+        <div class="cookie-modal-overlay" id="cookie-modal-overlay"></div>
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h3 id="cookie-modal-title">Nastavení cookies</h3>
+                <button class="cookie-modal-close" id="cookie-modal-close" aria-label="Zavřít">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <p class="cookie-modal-intro">
+                    Vyberte, které typy cookies chcete povolit. Vaše nastavení můžete kdykoliv změnit.
+                </p>
+
+                <!-- Nezbytné cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Nezbytné cookies</h4>
+                            <p>Tyto cookies jsou nutné pro správné fungování webu. Nelze je vypnout.</p>
+                        </div>
+                        <label class="cookie-toggle disabled">
+                            <input type="checkbox" checked disabled>
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Analytické cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Analytické cookies</h4>
+                            <p>Pomáhají nám pochopit, jak návštěvníci používají web (Google Analytics).</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-analytics">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Marketingové cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Marketingové cookies</h4>
+                            <p>Používají se pro personalizaci reklam a měření jejich účinnosti.</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-marketing">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Funkční cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Funkční cookies</h4>
+                            <p>Umožňují rozšířené funkce jako přepínání témat a jazyků.</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-functional" checked>
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="btn btn-secondary" id="cookie-save-settings">Uložit nastavení</button>
+                <button class="btn btn-primary" id="cookie-accept-all">Přijmout vše</button>
             </div>
         </div>
     </div>
@@ -2530,26 +3076,176 @@
         });
 
         // ============================================
-        // Cookie Consent
+        // Cookie Consent - GDPR Compliant
         // ============================================
+        const cookieModal = document.getElementById('cookie-modal');
+        const cookieModalOverlay = document.getElementById('cookie-modal-overlay');
+        const cookieModalClose = document.getElementById('cookie-modal-close');
+        const cookieReject = document.getElementById('cookie-reject');
+        const cookieSaveSettings = document.getElementById('cookie-save-settings');
+        const cookieAcceptAll = document.getElementById('cookie-accept-all');
+        const cookieAnalytics = document.getElementById('cookie-analytics');
+        const cookieMarketing = document.getElementById('cookie-marketing');
+        const cookieFunctional = document.getElementById('cookie-functional');
+
+        // Cookie consent storage key
+        const COOKIE_CONSENT_KEY = 'szeiner_cookie_consent';
+
+        // Get saved consent
+        function getCookieConsent() {
+            const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+            return consent ? JSON.parse(consent) : null;
+        }
+
+        // Save cookie consent
+        function saveCookieConsent(consent) {
+            localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({
+                ...consent,
+                timestamp: new Date().toISOString(),
+                version: '1.0'
+            }));
+            applyCookieConsent(consent);
+        }
+
+        // Apply cookie consent (enable/disable features)
+        function applyCookieConsent(consent) {
+            // Update Google Analytics consent
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'analytics_storage': consent.analytics ? 'granted' : 'denied',
+                    'ad_storage': consent.marketing ? 'granted' : 'denied'
+                });
+
+                // Load GA4 script if analytics is enabled
+                if (consent.analytics) {
+                    loadGA4();
+                }
+            }
+
+            // Track consent event (only if analytics enabled)
+            if (consent.analytics && typeof gtag !== 'undefined') {
+                gtag('event', 'cookie_consent', {
+                    'consent_analytics': consent.analytics,
+                    'consent_marketing': consent.marketing,
+                    'consent_functional': consent.functional
+                });
+            }
+
+            console.log('Cookie consent applied:', consent);
+        }
+
+        // Show cookie banner if no consent
         function showCookieBanner() {
-            if (!localStorage.getItem('cookieConsent')) {
+            const consent = getCookieConsent();
+            if (!consent) {
                 setTimeout(() => {
                     cookieBanner.classList.add('show');
-                }, 2000);
+                }, 1500);
+            } else {
+                // Apply saved consent
+                applyCookieConsent(consent);
+                // Update modal checkboxes
+                if (cookieAnalytics) cookieAnalytics.checked = consent.analytics;
+                if (cookieMarketing) cookieMarketing.checked = consent.marketing;
+                if (cookieFunctional) cookieFunctional.checked = consent.functional;
             }
         }
 
-        cookieAccept.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
+        // Hide banner
+        function hideCookieBanner() {
             cookieBanner.classList.remove('show');
+        }
+
+        // Show modal
+        function showCookieModal() {
+            cookieModal.classList.add('show');
+            cookieModal.setAttribute('aria-hidden', 'false');
+        }
+
+        // Hide modal
+        function hideCookieModal() {
+            cookieModal.classList.remove('show');
+            cookieModal.setAttribute('aria-hidden', 'true');
+        }
+
+        // Accept all cookies
+        function acceptAllCookies() {
+            const consent = {
+                necessary: true,
+                analytics: true,
+                marketing: true,
+                functional: true
+            };
+            saveCookieConsent(consent);
+            hideCookieBanner();
+            hideCookieModal();
+        }
+
+        // Reject all cookies (except necessary)
+        function rejectAllCookies() {
+            const consent = {
+                necessary: true,
+                analytics: false,
+                marketing: false,
+                functional: false
+            };
+            saveCookieConsent(consent);
+            hideCookieBanner();
+            hideCookieModal();
+        }
+
+        // Save custom settings
+        function saveCustomSettings() {
+            const consent = {
+                necessary: true,
+                analytics: cookieAnalytics ? cookieAnalytics.checked : false,
+                marketing: cookieMarketing ? cookieMarketing.checked : false,
+                functional: cookieFunctional ? cookieFunctional.checked : true
+            };
+            saveCookieConsent(consent);
+            hideCookieBanner();
+            hideCookieModal();
+        }
+
+        // Event listeners
+        if (cookieAccept) {
+            cookieAccept.addEventListener('click', acceptAllCookies);
+        }
+
+        if (cookieReject) {
+            cookieReject.addEventListener('click', rejectAllCookies);
+        }
+
+        if (cookieSettings) {
+            cookieSettings.addEventListener('click', () => {
+                showCookieModal();
+            });
+        }
+
+        if (cookieModalClose) {
+            cookieModalClose.addEventListener('click', hideCookieModal);
+        }
+
+        if (cookieModalOverlay) {
+            cookieModalOverlay.addEventListener('click', hideCookieModal);
+        }
+
+        if (cookieSaveSettings) {
+            cookieSaveSettings.addEventListener('click', saveCustomSettings);
+        }
+
+        if (cookieAcceptAll) {
+            cookieAcceptAll.addEventListener('click', acceptAllCookies);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && cookieModal.classList.contains('show')) {
+                hideCookieModal();
+            }
         });
 
-        cookieSettings.addEventListener('click', () => {
-            // In a real implementation, this would open a modal
-            alert('Nastavení cookies bude brzy k dispozici.');
-        });
-
+        // Initialize cookie banner
         showCookieBanner();
 
         // ============================================
@@ -2726,6 +3422,68 @@
 
         // Expose to global scope for debugging
         window.refreshSteamImages = refreshSteamImages;
+
+        // ============================================
+        // Newsletter Signup
+        // ============================================
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterEmail = document.getElementById('newsletter-email');
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const email = newsletterEmail.value.trim();
+                if (!email) return;
+
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalHTML = submitBtn.innerHTML;
+
+                // Show loading state
+                submitBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin">
+                        <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                    </svg>
+                `;
+                submitBtn.disabled = true;
+
+                // Simulate API call (replace with actual newsletter API)
+                setTimeout(() => {
+                    // Success state
+                    submitBtn.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"/>
+                        </svg>
+                    `;
+                    submitBtn.style.background = 'var(--color-success)';
+
+                    // Show success message
+                    let successMsg = this.querySelector('.newsletter-success');
+                    if (!successMsg) {
+                        successMsg = document.createElement('p');
+                        successMsg.className = 'newsletter-success';
+                        this.appendChild(successMsg);
+                    }
+                    successMsg.textContent = 'Děkujeme za přihlášení k odběru!';
+
+                    // Track newsletter signup (if analytics enabled)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'newsletter_signup', {
+                            'email_domain': email.split('@')[1]
+                        });
+                    }
+
+                    // Reset after delay
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalHTML;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                        newsletterForm.reset();
+                        if (successMsg) successMsg.textContent = '';
+                    }, 4000);
+                }, 1500);
+            });
+        }
 
         // ============================================
         // Console Easter Egg
