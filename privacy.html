@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zásady ochrany osobních údajů společnosti SZEINER s.r.o. Informace o zpracování vašich dat podle GDPR.">
+    <meta name="robots" content="index, follow">
+    <title>Ochrana soukromí | SZEINER s.r.o.</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg-primary: #0a0a0a;
+            --color-bg-secondary: #121212;
+            --color-bg-card: #1a1a1a;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #b0b0b0;
+            --color-text-muted: #666666;
+            --color-accent: #ff6b35;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.8;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Header */
+        .header {
+            background: var(--color-bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+        .back-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .back-link:hover { color: var(--color-accent); }
+
+        /* Content */
+        .legal-content {
+            padding: 4rem 0;
+        }
+        .legal-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .legal-content h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--color-accent);
+        }
+        .legal-content h3 {
+            font-size: 1.125rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .legal-content p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+        }
+        .legal-content ul, .legal-content ol {
+            color: var(--color-text-secondary);
+            margin: 1rem 0 1rem 1.5rem;
+        }
+        .legal-content li {
+            margin-bottom: 0.5rem;
+            list-style: disc;
+        }
+        .legal-content ol li { list-style: decimal; }
+        .legal-content a {
+            color: var(--color-accent);
+        }
+        .info-box {
+            background: var(--color-bg-card);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box strong {
+            color: var(--color-text-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            background: var(--color-bg-card);
+            color: var(--color-text-primary);
+        }
+        td { color: var(--color-text-secondary); }
+
+        /* Footer */
+        .footer {
+            background: var(--color-bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer p {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+        .footer a {
+            color: var(--color-text-secondary);
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">SZEINER</a>
+            <a href="index.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Zpět na hlavní stránku
+            </a>
+        </div>
+    </header>
+
+    <main class="container legal-content">
+        <h1>Zásady ochrany osobních údajů</h1>
+        <p class="meta">Poslední aktualizace: 6. prosince 2025</p>
+
+        <div class="info-box">
+            <strong>Správce osobních údajů</strong>
+            SZEINER s.r.o.<br>
+            IČO: 058 22 882<br>
+            Zbýšov 90, Česká republika<br>
+            Email: privacy@szeiner.com
+        </div>
+
+        <h2>1. Úvod</h2>
+        <p>
+            Společnost SZEINER s.r.o. (dále jen „my", „nás" nebo „společnost") respektuje vaše soukromí
+            a zavazuje se chránit vaše osobní údaje. Tyto zásady ochrany osobních údajů vás informují
+            o tom, jak nakládáme s vašimi osobními údaji při návštěvě našich webových stránek
+            (szeiner.com) a využívání našich služeb.
+        </p>
+
+        <h2>2. Jaké údaje shromažďujeme</h2>
+
+        <h3>2.1 Údaje, které nám poskytujete</h3>
+        <ul>
+            <li><strong>Kontaktní údaje:</strong> jméno, email, telefonní číslo při vyplnění kontaktního formuláře</li>
+            <li><strong>Účetní údaje:</strong> fakturační adresa, IČO při objednávce služeb webhostingu</li>
+            <li><strong>Komunikace:</strong> obsah zpráv, které nám zasíláte</li>
+        </ul>
+
+        <h3>2.2 Údaje shromažďované automaticky</h3>
+        <ul>
+            <li><strong>Technické údaje:</strong> IP adresa, typ prohlížeče, operační systém</li>
+            <li><strong>Údaje o používání:</strong> navštívené stránky, doba strávená na webu</li>
+            <li><strong>Cookies:</strong> viz naše <a href="cookies.html">Zásady cookies</a></li>
+        </ul>
+
+        <h3>2.3 Údaje z her</h3>
+        <p>
+            <strong>V našich hrách neshromažďujeme žádné osobní údaje.</strong> Hry SZEINER fungují
+            bez nutnosti registrace a neobsahují žádné mechanismy sledování hráčů.
+        </p>
+
+        <h2>3. Jak vaše údaje používáme</h2>
+        <table>
+            <tr>
+                <th>Účel zpracování</th>
+                <th>Právní základ</th>
+                <th>Doba uchování</th>
+            </tr>
+            <tr>
+                <td>Odpověď na vaše dotazy</td>
+                <td>Oprávněný zájem</td>
+                <td>2 roky od posledního kontaktu</td>
+            </tr>
+            <tr>
+                <td>Poskytování webhostingu</td>
+                <td>Plnění smlouvy</td>
+                <td>Po dobu trvání smlouvy + 10 let</td>
+            </tr>
+            <tr>
+                <td>Zasílání novinek (newsletter)</td>
+                <td>Souhlas</td>
+                <td>Do odvolání souhlasu</td>
+            </tr>
+            <tr>
+                <td>Analytika a zlepšování služeb</td>
+                <td>Oprávněný zájem</td>
+                <td>26 měsíců</td>
+            </tr>
+        </table>
+
+        <h2>4. Sdílení údajů s třetími stranami</h2>
+        <p>Vaše osobní údaje můžeme sdílet pouze v těchto případech:</p>
+        <ul>
+            <li><strong>Poskytovatelé služeb:</strong> CloudFlare (CDN, ochrana), Google Analytics (analytika)</li>
+            <li><strong>Právní povinnosti:</strong> pokud to vyžaduje zákon nebo soudní rozhodnutí</li>
+            <li><strong>S vaším souhlasem:</strong> v jiných případech pouze s vaším výslovným souhlasem</li>
+        </ul>
+        <p>Vaše údaje neprodáváme a nikdy je nebudeme prodávat třetím stranám.</p>
+
+        <h2>5. Vaše práva dle GDPR</h2>
+        <p>Jako subjekt údajů máte následující práva:</p>
+        <ul>
+            <li><strong>Právo na přístup</strong> (čl. 15 GDPR) – můžete požádat o kopii svých údajů</li>
+            <li><strong>Právo na opravu</strong> (čl. 16 GDPR) – můžete požádat o opravu nepřesných údajů</li>
+            <li><strong>Právo na výmaz</strong> (čl. 17 GDPR) – můžete požádat o smazání svých údajů</li>
+            <li><strong>Právo na omezení zpracování</strong> (čl. 18 GDPR)</li>
+            <li><strong>Právo na přenositelnost údajů</strong> (čl. 20 GDPR)</li>
+            <li><strong>Právo vznést námitku</strong> (čl. 21 GDPR)</li>
+            <li><strong>Právo odvolat souhlas</strong> – kdykoli, bez uvedení důvodu</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Jak uplatnit svá práva</strong>
+            Pro uplatnění jakéhokoli z výše uvedených práv nás kontaktujte na:
+            <a href="mailto:privacy@szeiner.com">privacy@szeiner.com</a><br>
+            Na vaši žádost odpovíme do 30 dnů.
+        </div>
+
+        <h2>6. Právo podat stížnost</h2>
+        <p>
+            Máte právo podat stížnost u dozorového úřadu, kterým je v České republice:
+        </p>
+        <p>
+            <strong>Úřad pro ochranu osobních údajů (ÚOOÚ)</strong><br>
+            Pplk. Sochora 27<br>
+            170 00 Praha 7<br>
+            Web: <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a>
+        </p>
+
+        <h2>7. Zabezpečení údajů</h2>
+        <p>
+            Implementovali jsme přiměřená technická a organizační opatření k ochraně vašich
+            osobních údajů před neoprávněným přístupem, ztrátou nebo zničením:
+        </p>
+        <ul>
+            <li>Šifrování přenosu dat pomocí SSL/TLS</li>
+            <li>Pravidelné zálohy dat</li>
+            <li>Omezený přístup k osobním údajům pouze oprávněným osobám</li>
+            <li>Ochrana serverů pomocí CloudFlare</li>
+        </ul>
+
+        <h2>8. Mezinárodní přenosy dat</h2>
+        <p>
+            Vaše údaje mohou být zpracovávány v zemích mimo Evropský hospodářský prostor (EHP).
+            V takových případech zajišťujeme odpovídající záruky ochrany prostřednictvím:
+        </p>
+        <ul>
+            <li>Standardních smluvních doložek schválených Evropskou komisí</li>
+            <li>Certifikací EU-US Data Privacy Framework (pro USA)</li>
+        </ul>
+
+        <h2>9. Změny těchto zásad</h2>
+        <p>
+            Tyto zásady můžeme čas od času aktualizovat. O významných změnách vás budeme informovat
+            prostřednictvím upozornění na našich webových stránkách nebo e-mailem.
+        </p>
+
+        <h2>10. Kontakt</h2>
+        <p>
+            Máte-li jakékoli dotazy ohledně těchto zásad ochrany osobních údajů, kontaktujte nás:
+        </p>
+        <div class="info-box">
+            <strong>Pověřenec pro ochranu osobních údajů (DPO)</strong>
+            Email: <a href="mailto:privacy@szeiner.com">privacy@szeiner.com</a><br>
+            SZEINER s.r.o.<br>
+            Zbýšov 90, Česká republika
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; 2017-2025 SZEINER s.r.o. |
+                <a href="privacy.html">Ochrana soukromí</a> |
+                <a href="terms.html">Obchodní podmínky</a> |
+                <a href="gdpr.html">GDPR</a> |
+                <a href="cookies.html">Cookies</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

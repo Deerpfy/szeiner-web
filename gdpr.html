@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GDPR informace a práva subjektů údajů společnosti SZEINER s.r.o. Vše o ochraně vašich osobních údajů.">
+    <meta name="robots" content="index, follow">
+    <title>GDPR | SZEINER s.r.o.</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg-primary: #0a0a0a;
+            --color-bg-secondary: #121212;
+            --color-bg-card: #1a1a1a;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #b0b0b0;
+            --color-text-muted: #666666;
+            --color-accent: #ff6b35;
+            --color-success: #27ae60;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-family); background: var(--color-bg-primary); color: var(--color-text-primary); line-height: 1.8; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        .header { background: var(--color-bg-secondary); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.25rem; font-weight: 700; color: var(--color-accent); text-decoration: none; }
+        .back-link { color: var(--color-text-secondary); text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; }
+        .back-link:hover { color: var(--color-accent); }
+        .legal-content { padding: 4rem 0; }
+        .legal-content h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .meta { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .legal-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--color-accent); }
+        .legal-content h3 { font-size: 1.125rem; margin: 1.5rem 0 0.75rem; }
+        .legal-content p { color: var(--color-text-secondary); margin-bottom: 1rem; }
+        .legal-content ul { color: var(--color-text-secondary); margin: 1rem 0 1rem 1.5rem; }
+        .legal-content li { margin-bottom: 0.5rem; list-style: disc; }
+        .legal-content a { color: var(--color-accent); }
+        .info-box { background: var(--color-bg-card); border-left: 4px solid var(--color-accent); padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .info-box strong { color: var(--color-text-primary); display: block; margin-bottom: 0.5rem; }
+        .rights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .right-card { background: var(--color-bg-card); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.3s; }
+        .right-card:hover { border-color: var(--color-accent); }
+        .right-card h3 { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 1rem; }
+        .right-card h3 svg { color: var(--color-success); flex-shrink: 0; }
+        .right-card p { font-size: 0.875rem; color: var(--color-text-secondary); margin: 0; }
+        .footer { background: var(--color-bg-secondary); padding: 2rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer p { color: var(--color-text-muted); font-size: 0.875rem; }
+        .footer a { color: var(--color-text-secondary); margin: 0 0.5rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 600; border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; margin-top: 1rem; }
+        .btn-primary { background: var(--color-accent); color: white; border: none; }
+        .btn-primary:hover { background: #ff8555; color: white; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">SZEINER</a>
+            <a href="index.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Zpět na hlavní stránku
+            </a>
+        </div>
+    </header>
+
+    <main class="container legal-content">
+        <h1>GDPR - Ochrana osobních údajů</h1>
+        <p class="meta">Informace dle Nařízení EU 2016/679 (GDPR)</p>
+
+        <div class="info-box">
+            <strong>Správce osobních údajů</strong>
+            SZEINER s.r.o.<br>
+            IČO: 058 22 882<br>
+            Zbýšov 90, Česká republika<br>
+            Email: <a href="mailto:privacy@szeiner.com">privacy@szeiner.com</a>
+        </div>
+
+        <h2>Vaše práva dle GDPR</h2>
+        <p>
+            Jako subjekt údajů máte podle Nařízení Evropského parlamentu a Rady (EU) 2016/679
+            (obecné nařízení o ochraně osobních údajů - GDPR) následující práva:
+        </p>
+
+        <div class="rights-grid">
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Právo na přístup (čl. 15)
+                </h3>
+                <p>Máte právo získat potvrzení, zda jsou vaše osobní údaje zpracovávány, a pokud ano, získat k nim přístup a informace o zpracování.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Právo na opravu (čl. 16)
+                </h3>
+                <p>Máte právo požadovat opravu nepřesných osobních údajů, které se vás týkají, bez zbytečného odkladu.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    Právo na výmaz (čl. 17)
+                </h3>
+                <p>Máte právo požadovat výmaz osobních údajů („právo být zapomenut"), pokud již nejsou potřebné nebo odvoláte souhlas.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    Právo na omezení zpracování (čl. 18)
+                </h3>
+                <p>Máte právo požadovat omezení zpracování, například pokud popíráte přesnost údajů nebo namítáte proti zpracování.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Právo na přenositelnost (čl. 20)
+                </h3>
+                <p>Máte právo získat své osobní údaje ve strukturovaném, běžně používaném a strojově čitelném formátu.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                    </svg>
+                    Právo vznést námitku (čl. 21)
+                </h3>
+                <p>Máte právo kdykoliv vznést námitku proti zpracování založenému na oprávněných zájmech správce.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    Právo odvolat souhlas
+                </h3>
+                <p>Pokud je zpracování založeno na vašem souhlasu, máte právo tento souhlas kdykoliv odvolat bez udání důvodu.</p>
+            </div>
+
+            <div class="right-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                    </svg>
+                    Právo podat stížnost
+                </h3>
+                <p>Máte právo podat stížnost u dozorového úřadu (ÚOOÚ), pokud se domníváte, že zpracování porušuje GDPR.</p>
+            </div>
+        </div>
+
+        <h2>Jak uplatnit svá práva</h2>
+        <p>
+            Pro uplatnění jakéhokoli z výše uvedených práv nás můžete kontaktovat:
+        </p>
+        <ul>
+            <li><strong>Emailem:</strong> <a href="mailto:privacy@szeiner.com">privacy@szeiner.com</a></li>
+            <li><strong>Poštou:</strong> SZEINER s.r.o., Zbýšov 90, Česká republika</li>
+        </ul>
+        <p>
+            Na vaši žádost odpovíme bez zbytečného odkladu, nejpozději do <strong>30 dnů</strong>
+            od obdržení žádosti. V případě složitých nebo četných žádostí může být tato lhůta
+            prodloužena o další 2 měsíce, o čemž vás budeme informovat.
+        </p>
+
+        <a href="mailto:privacy@szeiner.com?subject=GDPR%20žádost" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Odeslat žádost
+        </a>
+
+        <h2>Zpracování osobních údajů v našich hrách</h2>
+        <div class="info-box">
+            <strong>Důležité upozornění</strong>
+            V našich hrách (Azulgar: Star Commanders, Cybershift, NEO: Commanders a další)
+            <strong>neshromažďujeme žádné osobní údaje</strong>. Naše hry nevyžadují
+            registraci, neobsahují analytické nástroje sledující hráče a neukládají
+            žádná osobní data na naše servery.
+        </div>
+
+        <h2>Dozorový úřad</h2>
+        <p>
+            Pokud se domníváte, že zpracování vašich osobních údajů porušuje nařízení GDPR,
+            máte právo podat stížnost u dozorového úřadu:
+        </p>
+        <div class="info-box">
+            <strong>Úřad pro ochranu osobních údajů (ÚOOÚ)</strong>
+            Pplk. Sochora 27<br>
+            170 00 Praha 7<br>
+            Tel.: +420 234 665 111<br>
+            Email: posta@uoou.cz<br>
+            Web: <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a>
+        </div>
+
+        <h2>Další informace</h2>
+        <p>
+            Pro podrobnější informace o zpracování osobních údajů si přečtěte naše
+            <a href="privacy.html">Zásady ochrany osobních údajů</a>.
+        </p>
+        <p>
+            Informace o používání cookies naleznete v <a href="cookies.html">Zásadách cookies</a>.
+        </p>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; 2017-2025 SZEINER s.r.o. |
+                <a href="privacy.html">Ochrana soukromí</a> |
+                <a href="terms.html">Obchodní podmínky</a> |
+                <a href="gdpr.html">GDPR</a> |
+                <a href="cookies.html">Cookies</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
