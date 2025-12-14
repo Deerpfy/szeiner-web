@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SZEINER - Připravujeme něco výjimečného. Brzy spustíme nový projekt. Sledujte nás pro více informací.">
+    <meta name="keywords" content="SZEINER, coming soon, připravujeme, herní studio, nový projekt">
+    <meta name="author" content="SZEINER s.r.o.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://szeiner.com/coming-soon">
+    <meta property="og:title" content="SZEINER - Již brzy">
+    <meta property="og:description" content="Připravujeme něco výjimečného. Brzy spustíme nový projekt.">
+    <meta property="og:image" content="https://szeiner.com/images/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SZEINER - Již brzy">
+    <meta name="twitter:description" content="Připravujeme něco výjimečného. Brzy spustíme nový projekt.">
+
+    <title>Již brzy | SZEINER - České herní studio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CSS DESIGN SYSTEM - SZEINER
+           Coming Soon Page
+           ============================================ */
+
+        :root {
+            /* Primary Background Colors - Deep Space */
+            --color-bg-primary: #030014;
+            --color-bg-secondary: #0a0a1a;
+            --color-bg-tertiary: #0f0f23;
+            --color-bg-card: #12122a;
+            --color-bg-card-hover: #1a1a3e;
+
+            /* Text Colors */
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #a0a0c0;
+            --color-text-muted: #6060a0;
+
+            /* Primary Accent - Electric Violet */
+            --color-accent: #8b5cf6;
+            --color-accent-hover: #a78bfa;
+            --color-accent-dark: #7c3aed;
+            --color-accent-rgb: 139, 92, 246;
+
+            /* Secondary Accent - Cyber Cyan */
+            --color-secondary: #06b6d4;
+            --color-secondary-hover: #22d3ee;
+            --color-secondary-dark: #0891b2;
+            --color-secondary-rgb: 6, 182, 212;
+
+            /* Tertiary Accent - Neon Pink */
+            --color-tertiary: #ec4899;
+            --color-tertiary-hover: #f472b6;
+            --color-tertiary-rgb: 236, 72, 153;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            --gradient-dark: linear-gradient(180deg, #030014 0%, #0a0a1a 50%, #0f0f23 100%);
+
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Shadows & Glows */
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.4);
+            --shadow-glow-lg: 0 0 60px rgba(139, 92, 246, 0.3), 0 0 100px rgba(236, 72, 153, 0.2);
+            --shadow-glow-cyan: 0 0 40px rgba(6, 182, 212, 0.4);
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+            --transition-slow: 500ms ease;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--gradient-dark);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
+           PARTICLES BACKGROUND
+           ============================================ */
+
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(odd) {
+            background: var(--color-secondary);
+        }
+
+        .particle:nth-child(3n) {
+            background: var(--color-tertiary);
+            width: 3px;
+            height: 3px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0.6;
+            }
+        }
+
+        /* Glow orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: pulse-glow 8s infinite ease-in-out;
+        }
+
+        .glow-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--color-accent);
+            top: -200px;
+            left: -200px;
+        }
+
+        .glow-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--color-tertiary);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -4s;
+        }
+
+        .glow-orb-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--color-secondary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -2s;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(1.1); }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+
+        .coming-soon-container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+
+        /* ============================================
+           LOGO & BRANDING
+           ============================================ */
+
+        .logo-container {
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .logo-img {
+            width: auto;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-accent), #ff8555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           MAIN CONTENT
+           ============================================ */
+
+        .content {
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .title-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           COUNTDOWN TIMER
+           ============================================ */
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .countdown-item {
+            background: var(--color-bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            min-width: 100px;
+            transition: all var(--transition-normal);
+        }
+
+        .countdown-item:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* ============================================
+           NEWSLETTER FORM
+           ============================================ */
+
+        .newsletter {
+            max-width: 450px;
+            margin: 0 auto var(--spacing-2xl);
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .newsletter-title {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--color-bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--color-text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all var(--transition-normal);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow-lg);
+        }
+
+        .newsletter-note {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* ============================================
+           SOCIAL LINKS
+           ============================================ */
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--color-bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--color-text-secondary);
+            transition: all var(--transition-normal);
+        }
+
+        .social-link:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* ============================================
+           BACK TO HOME LINK
+           ============================================ */
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            transition: all var(--transition-normal);
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-lg);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer a {
+            color: var(--color-text-secondary);
+        }
+
+        .footer a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 640px) {
+            .coming-soon-container {
+                padding: var(--spacing-lg);
+            }
+
+            .logo-text {
+                font-size: 2rem;
+            }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .countdown {
+                gap: var(--spacing-md);
+            }
+
+            .countdown-item {
+                padding: var(--spacing-md);
+                min-width: 70px;
+            }
+
+            .countdown-value {
+                font-size: 1.75rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles-container">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+
+        <!-- Particles generated by JS -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="coming-soon-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo">
+                <img src="assets/images/ico.png" alt="SZEINER Logo" class="logo-img">
+                <span class="logo-text">SZEINER</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Připravujeme
+            </div>
+
+            <h1 class="main-title">
+                Něco <span class="title-gradient">výjimečného</span> je na cestě
+            </h1>
+
+            <p class="subtitle">
+                Pracujeme na novém projektu. Zanechte nám svůj e-mail a budete první, kdo se dozví více.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Dní</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hodin</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minut</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Sekund</div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <p class="newsletter-title">Dejte nám vědět, že máte zájem</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input
+                        type="email"
+                        class="newsletter-input"
+                        placeholder="vas@email.cz"
+                        required
+                        aria-label="Váš e-mail"
+                    >
+                    <button type="submit" class="btn btn-primary">
+                        Odebírat
+                    </button>
+                </form>
+                <p class="newsletter-note">Žádný spam. Pouze důležité novinky.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://discord.gg/szeiner" class="social-link" target="_blank" rel="noopener" aria-label="Discord">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/szeiner" class="social-link" target="_blank" rel="noopener" aria-label="Twitter / X">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://youtube.com/@szeiner" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://store.steampowered.com/developer/szeiner" class="social-link" target="_blank" rel="noopener" aria-label="Steam">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Back to Home -->
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Zpět na hlavní stránku
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2017-2025 SZEINER s.r.o. | <a href="privacy.html">Ochrana soukromí</a> | <a href="gdpr.html">GDPR</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // ============================================
+        // PARTICLES ANIMATION
+        // ============================================
+        function createParticles() {
+            const container = document.querySelector('.particles-container');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // ============================================
+        // COUNTDOWN TIMER
+        // ============================================
+        function initCountdown() {
+            // Set target date (e.g., 30 days from now - adjust as needed)
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 30);
+
+            function updateCountdown() {
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // ============================================
+        // NEWSLETTER FORM
+        // ============================================
+        function initNewsletter() {
+            const form = document.getElementById('newsletter-form');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = form.querySelector('input[type="email"]').value;
+
+                // Here you would typically send the email to your backend
+                // For now, just show a success message
+                alert('Děkujeme za váš zájem! Budeme vás informovat.');
+                form.reset();
+            });
+        }
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            initCountdown();
+            initNewsletter();
+        });
+    </script>
+</body>
+</html>
