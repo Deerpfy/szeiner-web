@@ -319,28 +319,7 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-        }
-
-        .logo-img {
-            width: auto;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--color-accent), #ff8555);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            justify-content: flex-end;
         }
 
         /* Language Switcher */
@@ -894,14 +873,6 @@
                 padding-bottom: 100px;
             }
 
-            .logo-text {
-                font-size: 1rem;
-            }
-
-            .logo-img {
-                height: 30px;
-            }
-
             .language-switcher {
                 padding: 2px;
             }
@@ -953,13 +924,9 @@
     </style>
 </head>
 <body>
-    <!-- Header with Logo and Language Switcher -->
+    <!-- Header with Language Switcher -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">
-                <img src="assets/images/ico.png" alt="SZEINER Logo" class="logo-img">
-                <span class="logo-text">SZEINER SOFTWARE COMPANY</span>
-            </div>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="cs">CZ</button>
                 <button class="lang-btn" data-lang="en">EN</button>
