@@ -319,7 +319,18 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: auto;
+            height: 40px;
+            object-fit: contain;
         }
 
         /* Language Switcher */
@@ -873,6 +884,10 @@
                 padding-bottom: 100px;
             }
 
+            .logo-img {
+                height: 30px;
+            }
+
             .language-switcher {
                 padding: 2px;
             }
@@ -927,6 +942,9 @@
     <!-- Header with Language Switcher -->
     <header class="header">
         <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/ico.png" alt="SZEINER Logo" class="logo-img">
+            </div>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="cs">CZ</button>
                 <button class="lang-btn" data-lang="en">EN</button>
