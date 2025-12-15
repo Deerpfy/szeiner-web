@@ -298,6 +298,96 @@
         }
 
         /* ============================================
+           HEADER WITH LOGO AND LANGUAGE SWITCHER
+           ============================================ */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            padding: var(--spacing-md) var(--spacing-xl);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .logo-img {
+            width: auto;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-accent), #ff8555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: var(--spacing-xs);
+            background: var(--color-bg-card);
+            border-radius: var(--radius-md);
+            padding: 4px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .lang-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-transform: uppercase;
+        }
+
+        .lang-btn:hover {
+            color: var(--color-text-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
            MAIN CONTAINER
            ============================================ */
 
@@ -310,49 +400,8 @@
             align-items: center;
             justify-content: center;
             padding: var(--spacing-xl);
+            padding-top: calc(80px + var(--spacing-xl));
             text-align: center;
-        }
-
-        /* ============================================
-           LOGO & BRANDING
-           ============================================ */
-
-        .logo-container {
-            margin-bottom: var(--spacing-2xl);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .logo-img {
-            width: auto;
-            height: 60px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--color-accent), #ff8555);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* ============================================
@@ -835,17 +884,31 @@
            ============================================ */
 
         @media (max-width: 640px) {
+            .header {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
             .coming-soon-container {
                 padding: var(--spacing-lg);
+                padding-top: calc(70px + var(--spacing-lg));
                 padding-bottom: 100px;
             }
 
             .logo-text {
-                font-size: 2rem;
+                font-size: 1rem;
             }
 
             .logo-img {
-                height: 45px;
+                height: 30px;
+            }
+
+            .language-switcher {
+                padding: 2px;
+            }
+
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 0.75rem;
             }
 
             .countdown {
@@ -890,6 +953,20 @@
     </style>
 </head>
 <body>
+    <!-- Header with Logo and Language Switcher -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/ico.png" alt="SZEINER Logo" class="logo-img">
+                <span class="logo-text">SZEINER SOFTWARE COMPANY</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="cs">CZ</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
     <!-- Particles Background -->
     <div class="particles-container">
         <div class="glow-orb glow-orb-1"></div>
@@ -899,23 +976,13 @@
 
     <!-- Main Content -->
     <main class="coming-soon-container">
-        <!-- Logo -->
-        <div class="logo-container">
-            <div class="logo">
-                <img src="assets/images/ico.png" alt="SZEINER Logo" class="logo-img">
-                <span class="logo-text">SZEINER SOFTWARE COMPANY</span>
-            </div>
-        </div>
-
         <!-- Content -->
         <div class="content">
-           
-
             <h1 class="main-title">
-                Něco <span class="title-gradient">výjimečného</span> je na cestě
+                <span data-i18n="title-before">Něco</span> <span class="title-gradient" data-i18n="title-highlight">výjimečného</span> <span data-i18n="title-after">je na cestě</span>
             </h1>
 
-            <p class="subtitle">
+            <p class="subtitle" data-i18n="subtitle">
                 Pracujeme na nových projektech. Sledujte nás na sociálních sítích pro více informací.
             </p>
 
@@ -930,10 +997,10 @@
 
             <!-- Legal Links - Required by law -->
             <nav class="legal-links" aria-label="Právní informace">
-                <a href="privacy.html" class="legal-link">Ochrana soukromí</a>
+                <a href="privacy.html" class="legal-link" data-i18n="link-privacy">Ochrana soukromí</a>
                 <a href="gdpr.html" class="legal-link">GDPR</a>
                 <a href="cookies.html" class="legal-link">Cookies</a>
-                <a href="terms.html" class="legal-link">Obchodní podmínky</a>
+                <a href="terms.html" class="legal-link" data-i18n="link-terms">Obchodní podmínky</a>
             </nav>
         </div>
 
@@ -1046,6 +1113,66 @@
     </div>
 
     <script>
+        // ============================================
+        // LANGUAGE SWITCHER
+        // ============================================
+        const translations = {
+            cs: {
+                'title-before': 'Něco',
+                'title-highlight': 'výjimečného',
+                'title-after': 'je na cestě',
+                'subtitle': 'Pracujeme na nových projektech. Sledujte nás na sociálních sítích pro více informací.',
+                'link-privacy': 'Ochrana soukromí',
+                'link-terms': 'Obchodní podmínky'
+            },
+            en: {
+                'title-before': 'Something',
+                'title-highlight': 'exceptional',
+                'title-after': 'is coming',
+                'subtitle': 'We are working on new projects. Follow us on social media for more information.',
+                'link-privacy': 'Privacy Policy',
+                'link-terms': 'Terms of Service'
+            }
+        };
+
+        function setLanguage(lang) {
+            // Save to localStorage
+            localStorage.setItem('szeiner_language', lang);
+
+            // Update document language
+            document.documentElement.lang = lang;
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function initLanguage() {
+            // Get saved language or default to 'cs'
+            const savedLang = localStorage.getItem('szeiner_language') || 'cs';
+            setLanguage(savedLang);
+
+            // Add click handlers to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        }
+
         // ============================================
         // PARTICLES ANIMATION
         // ============================================
@@ -1207,6 +1334,7 @@
         // INITIALIZE
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
+            initLanguage();
             createParticles();
             showCookieBanner();
         });
